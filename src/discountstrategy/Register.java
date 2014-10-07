@@ -46,7 +46,7 @@ public class Register {
         //receipt.addItem(fd.getProduct(productId), qty);
     }
 
-    public void endSaleAndPrintReceipt(ReceiptType writer){
-        sale.printReceipt(writer, db.getTaxRate());
+    void endSaleAndPrintReceipt(GUIReceipt guiReceipt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

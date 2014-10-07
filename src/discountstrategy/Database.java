@@ -8,6 +8,5 @@ package discountstrategy;
 public interface Database {
        public Customer getCustomer(String customerId);
        public Product getProduct(String productId);
-       public double getTaxRate();
        
 }

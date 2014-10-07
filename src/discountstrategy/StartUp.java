@@ -12,11 +12,18 @@ public class StartUp {
         
         Register r = new Register(new FakeDB());
         
-        // Sale 1
+        // Sale 
         r.startNewSale("2635");
         
-        r.addItem("A101", 1);
-
+        r.addItem("f211", 1);
+        
+        r.endSaleAndPrintReceipt(new GUIReceipt());
+        
+        // Sale 
+        r.startNewSale("16122");
+        
+        r.addItem("a101", 1);
+        r.addItem("b929", 1);
         
         r.endSaleAndPrintReceipt(new GUIReceipt());
     }
