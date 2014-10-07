@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package discountstrategy;
 
 /**
  *
  * @author justinpotts
  */
-public class Quantity implements DiscountType {
-    private double baseRate = 0.10;
+
+public abstract class Quantity implements DiscountType {
+    private double rate = 0.10;
     private double price;
     private double qty;
     private double min = 5;
@@ -19,17 +16,17 @@ public class Quantity implements DiscountType {
         double discount = 0;
 
         if(qty >= getMin()) {
-            discount = baseRate * price * qty;
+            discount = rate * price * qty;
         }
         return discount;
     }
 
-    public double getBaseRate() {
-        return baseRate;
+    public double getRate() {
+        return rate;
     }
 
-    public void setBaseRate(double baseRate) {
-        this.baseRate = baseRate;
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 
     public double getPrice() {

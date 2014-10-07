@@ -1,51 +1,65 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package discountstrategy;
 
+import java.text.NumberFormat;
+
 /**
- *
+ * This class stores all the information for a Line Item.
+ * 
  * @author justinpotts
+ * @version 1.00
  */
+
 public class LineItem {
-    private Product product;
-    private double qty;
-
-    public LineItem(String id, double qty) {
-        this.product = findProduct(id);
+    
+    private final String productId;
+    private final String productDescription;
+    private final double price;
+    private final int qty;
+    private final double discount;
+    
+     public LineItem(String productId, String description, double unitPrice, int qty, double discount) {
+        this.productId = productId;
+        this.productDescription = description;
+        this.price = unitPrice;
         this.qty = qty;
+        this.discount = discount;
     }
-    
-    public double getTotalDiscount() {
-        return (product.getTotalDiscount(qty));
+//      
+//    public String getProductId() {
+//        return productId;
+//    }
+//    
+    public double getPrice() {
+        return price;
     }
-
-    public double getLineItemTotal() {
-        return (product.getUnitCost() * qty - getTotalDiscount());
-    }
-    
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public double getQty() {
-        return qty;
-    }
-
-    public void setQty(double qty) {
-        this.qty = qty;
-    }
-
-    private Product findProduct(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      
+    public double getDiscount() {
+        return discount;
     }
     
     
+        public String toString(String format, NumberFormat nf){
+        if(nf == null || format == null || format.isEmpty()){
+            throw new NullPointerException("NumberFormat and String arguments"
+                    + "must not be null or empty.");
+        }
+        return String.format(format, productDescription, qty, nf.format(price), nf.format(discount), nf.format(price - discount));
+//        return description + "      " + qty + "       " + price + "      " + discount + "      " + (price - discount);
+    }
+//    public double getQty() {
+//    return qty;
+//    }
+//
+//    public String getDescription() {
+//    return productDescription;}
+    
+      
+     /**
+     * Creates a string using the line item and returns it. 
+     * 
+     * @param format - String for String.format()
+     * @param nf - NumberFormat object
+     * @return 
+     */
     
 }

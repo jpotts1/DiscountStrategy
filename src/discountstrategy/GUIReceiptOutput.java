@@ -5,11 +5,10 @@
  */
 package discountstrategy;
 
-import java.text.NumberFormat;
-
 /**
  *
  * @author justinpotts
  */
-public class Reciept {
-
+public class GUIReceiptOutput {
+    
+}

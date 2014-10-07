@@ -1,29 +1,26 @@
-
 package discountstrategy;
-
-
 import discountstrategy.Register;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
  * @author justinpotts
  */
+
 public class StartUp {
+   
     public static void main(String[] args) {
-    
-    Register r = new Register();
-    
-    r.startSale("1622");
-    
-    r.displayReceipt();
-    
-
+        
+        Register r = new Register(new FakeDB());
+        
+        // Sale 1
+        r.startNewSale("B122");
+        
+        r.addItem("11039", 2);
+        r.addItem("12045", 1);
+        r.addItem("11078", 1);
+        r.addItem("11078", 1);
+        
+        r.endSaleAndPrintReceipt(new GUIReceipt());
     }
-  
-
+    
 }

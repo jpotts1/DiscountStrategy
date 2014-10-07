@@ -1,90 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package discountstrategy;
 
+
 /**
- *
+ * This class is the flat rate discount strategy. This class implements from 
+ * discountType interface.
+ * 
  * @author justinpotts
+ * @version 1.00
  */
-public abstract class FlatRate implements DiscountType {
-    
-    private double baseRate = 0.25;
-    private double price;
-    private double qty;
-    private double min;
-    private double baseAmount;
 
-    @Override
-    public double getDiscount() {
-        return baseRate * qty * getPrice();
+public class FlatRate implements DiscountType {
+    public double getDiscountAmount(double price, double discountAmount){
+        if(price < .01 || discountAmount < .01){
+            throw new IllegalArgumentException("Price and discount must be at least"
+                    + ".01.");
+        }
+        return discountAmount;
     }
 
     @Override
-    public double getBaseRate() {
-        return baseRate;
+    public double getDiscountedPrice(double price, double discount) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void setBaseRate(double baseRate) {
-        this.baseRate = baseRate;
-    }
-
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public double getQty() {
-        return qty;
-    }
-
-    @Override
-    public void setQty(double qty) {
-        this.qty = qty;
-    }
-
-    @Override
-    public double getMin() {
-        return min;
-    }
-
-    @Override
-    public void setMin(double min) {
-        this.min = min;
-    }
-    
-    @Override
-    public String toString() {
-        return "Xmas Discount";
-    }
-
-    public double getBaseAmount() {
-        return baseAmount;
-    }
-
-    public void setBaseAmount(double baseAmount) {
-        this.baseAmount = baseAmount;
-    }
-    
-
-    public static void main(String[] args) {
-        DiscountType discount = new FlatRate() {};
-        discount.setBaseRate(.10);
-        discount.setPrice(25.00);
-        discount.setQty(20);
-        
-        double amt = discount.getDiscount();
-        System.out.println("The discount is: " + amt);        
-    }
-    
-
 }

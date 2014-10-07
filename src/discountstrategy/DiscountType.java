@@ -9,27 +9,19 @@ package discountstrategy;
 /**
  *
  * @author justinpotts
+ * @version 1.00
  */
+
+
+
 public interface DiscountType {
     
-    double getBaseRate();
+/**
+* Provides interface for getting the discounted price.
+* @param price - Product price for calculation
+* @param discount - Discount price for calculation
+* @return - returns the discounted price as a double
+*/
+    public abstract double getDiscountedPrice(double price, double discount);
 
-    double getDiscount();
-
-    double getMin();
-
-    double getPrice();
-
-    double getQty();
-
-    void setBaseRate(double baseRate);
-
-    void setMin(double min);
-
-    void setPrice(double price);
-
-    void setQty(double qty);
-
-    @Override
-    String toString();
 }
