@@ -17,7 +17,7 @@ public class CreditCardCustomer implements Customer{
     private String firstName;
     private String lastName;
 
-    public CreditCardCustomer(String customerId, String firstName, String lastName){
+    public CreditCardCustomer(String customerNumber, String firstName, String lastName){
         this.customerNumber = customerNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,7 +38,7 @@ public class CreditCardCustomer implements Customer{
      * @throws IllegalArgumentException if customerId is null or empty
      */
     
-    public void setCustomerNumber (String customerId) {
+    public void setCustomerNumber (String customerNumber) {
         if(customerNumber == null || customerNumber.isEmpty()){
             throw new IllegalArgumentException("Invalid customer number.");
         }
