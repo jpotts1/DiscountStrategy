@@ -110,4 +110,8 @@ public class Product {
     public double getUnitPrice() {
         return unitPrice;
     }
+
+    String getProductDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

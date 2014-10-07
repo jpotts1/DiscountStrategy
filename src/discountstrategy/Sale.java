@@ -24,7 +24,7 @@ public class Sale {
     public void addItem(Product p, int qty){
         LineItem[] temp = new LineItem[item.length + 1];
         System.arraycopy(item, 0, temp, 0, item.length);
-        temp[item.length] = new LineItem(p.getProductId(), p.getDesc(), p.getUnitPrice() * qty, qty, p.getDiscountAmount() * qty);
+        temp[item.length] = new LineItem(p.getProductId(), p.getProductDescription(), p.getUnitPrice() * qty, qty, p.getDiscountAmount() * qty);
         item = temp;
     }
 
